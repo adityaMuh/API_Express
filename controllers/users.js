@@ -32,10 +32,11 @@ module.exports = {
                     req.app.get('jwtSecretKey'),
                     {expiresIn: '1h'}
                 );
+                //delete(userInfo.password);
                 res.json({
                     status:"success",
                     message: "ok",
-                    data:{user: userInfo, token:token}});
+                    data:{user: { name:userInfo.name, email:userInfo.email}, token:token}});
 
                 }else {
                 res.json({
